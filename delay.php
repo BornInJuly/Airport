@@ -4,19 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
     <title>Delay</title>
 </head>
 <body>
     <div class="wrapper_0_del" id="main">
-        <div class="black">
+        <div class="black_notmain">
             <div class="central-part">
                 <main>
                     <div class="onslide">
                         <div class="onslide-text">
                             <h1 class="hello_notmain">СПИСОК ЗАДЕРЖАННЫХ РЕЙСОВ:</h1>
                         </div>
+                        <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12" style="overflow-x:auto; margin-right:15px;">
+                                <table class="table tablestyle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Номер рейса</th>
+                                            <th scope="col">Пункт отправления</th>
+                                            <th scope="col">Пункт прибытия</th>
+                                            <th scope="col">Время отправления</th>
+                                            <th scope="col">Время прибытия</th>
+                                        </tr>
+                                    </thead>
+                                        <?php
+                                        require_once 'db.php';
+
+                                        $query = "SELECT * FROM arrival WHERE astatus = 2";
+                                        $result = mysqli_query($link, $query);
+        
+                                        $flights = [];
+        
+                                        while ($flight = mysqli_fetch_assoc($result)) {
+                                            $flights[] = $flight;
+                                        }
+
+                                        $query = "SELECT * FROM departure WHERE dstatus = 2";
+                                        $result = mysqli_query($link, $query);
+        
+                                        while ($flight = mysqli_fetch_assoc($result)) {
+                                            $flights[] = $flight;
+                                        }
+                                        foreach ($flights as $flight) {
+                                            echo'<tbody>
+                                                    <tr>
+                                                        <th scope="row">'.$flight['flight_name'].'</th>
+                                                        <td>'.$flight['dep_point'].'</td>
+                                                        <td>'.$flight['arr_point'].'</td>
+                                                        <td>'.$flight['dep_time'].'</td>
+                                                        <td>'.$flight['arr_time'].'</td>
+                                                    </tr>
+                                                </tbody>';
+                                        }
+                                        ?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                         <div class="buttons">
                             <button class="buttons-item departure">Вылет</button>
                             <button class="buttons-item arrival">Посадка</button>

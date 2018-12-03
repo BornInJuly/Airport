@@ -20,7 +20,7 @@
                         </div>
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" style="overflow-x:auto; margin-right:15px;">
                                 <table class="table tablestyle">
                                     <thead>
                                         <tr>
@@ -34,7 +34,7 @@
                                         <?php
                                         require_once 'db.php';
 
-                                        $query = "SELECT * FROM departure WHERE status = 1";
+                                        $query = "SELECT * FROM departure WHERE dstatus = 1";
                                         $result = mysqli_query($link, $query);
         
                                         $flights = [];

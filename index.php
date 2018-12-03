@@ -15,10 +15,11 @@
             <div class="central-part">
                 <main>
                     <div class="onslide">
-                        <form action="handler.php" method="GET">
+                        <form id="searchform" method="POST" action="search.php">
                             <input class="searchtext" type="text" placeholder="Введите номер рейса">
-                            <button class="searchbutton" type="submit">Найти</button>
+                            <button id="searchbutton" type="submit">Найти</button>
                         </form>
+                        <div class="receiver"></div>
                         <div class="onslide-text">
                             <h1 class="hello_main">ДОБРО ПОЖАЛОВАТЬ В АЭРОПОРТ!</h1>
                         </div>
