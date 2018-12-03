@@ -1,0 +1,177 @@
+$blocks-in-line: 3;
+
+@if $blocks-in-line == 2 {
+    $flex-basis: 390px;
+} @else if $blocks-in-line == 3 {
+    $flex-basis: 260px;
+} @else {
+    $flex-basis: 130px;
+}
+
+@mixin screen ($size) {
+    @if $size == small {
+        @media (max-width: 600px) {
+            @content
+        };
+    }
+    @if $size == medium {
+        @media (max-width: 1000px) {
+            @content
+        };
+    }
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.wrapper_0_main {
+    background: url(img/main.jpg) center center / cover no-repeat;
+}
+
+.wrapper_0_dep {
+    background: url(img/dep.jpg) center center / cover no-repeat;
+}
+
+.wrapper_0_arr {
+    background: url(img/arr.jpg) center center / cover no-repeat;
+}
+
+.wrapper_0_del {
+    background: url(img/del.jpg) center center / cover no-repeat;
+}
+
+.black {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.black_notmain {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.central-part {
+    max-width: 1500px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.onslide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+form {
+    position: absolute;
+    right: 100px;
+    top: 35px;
+    @include screen(medium) {
+        right: 50px;
+        top: 25px;
+    }
+    @include screen(small) {
+        right: 10px;
+        top: 15px;
+    }
+}
+
+.onslide-text {
+    width: 100%;
+}
+
+.hello_main {
+    margin: 150px 10px;
+    font-size: 60px;
+    font-stretch: extra-condensed;
+    color: white;
+    font-family: 'Caveat', cursive;
+    @include screen(medium) {
+        font-size: 45px;
+    }
+    @include screen(small) {
+        font-size: 30px;
+    }
+}
+
+.hello_notmain {
+    margin: 50px 10px;
+    font-size: 60px;
+    font-stretch: extra-condensed;
+    color: white;
+    font-family: 'Caveat', cursive;
+    @include screen(medium) {
+        font-size: 45px;
+    }
+    @include screen(small) {
+        font-size: 30px;
+    }
+}
+
+.buttons {
+    width: 100%;
+    margin: 50px 100px;
+    display: flex;
+    justify-content: left;
+    @include screen(small) {
+        flex-wrap: wrap;
+    }
+}
+
+.buttons-item {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    color: white;
+    font-stretch: extra-condensed;
+    border: 2px solid white;
+    background: transparent;
+    padding: 20px;
+    margin: 10px;
+    @include screen(small) {
+        width: 100%;
+        font-size: 20px;
+        padding: 15px;
+        margin: 5px;
+    }  
+}
+
+.searchtext {
+    font-family: 'Caveat', cursive;
+    font-size: 15px;
+    font-stretch: extra-condensed;
+    border: 2px solid white;
+    background: white;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.searchbutton {
+    font-family: 'Caveat', cursive;
+    font-size: 15px;
+    color: white;
+    font-stretch: extra-condensed;
+    border: 2px solid white;
+    background: transparent;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.onslide-text h2 {
+    font-size: 50px;
+    margin-bottom: 100px;
+}
+
+.tablestyle {
+    background: rgba(255,255,255,0.3) !important;
+    color: white;
+}
